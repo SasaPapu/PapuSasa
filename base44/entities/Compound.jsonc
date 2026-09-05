@@ -1,0 +1,98 @@
+{
+  "name": "Compound",
+  "type": "object",
+  "properties": {
+    "name": {
+      "type": "string",
+      "title": "Nombre"
+    },
+    "formula": {
+      "type": "string",
+      "title": "F\u00f3rmula"
+    },
+    "type": {
+      "type": "string",
+      "enum": [
+        "ionic",
+        "covalent"
+      ],
+      "title": "Tipo de enlace"
+    },
+    "description": {
+      "type": "string",
+      "title": "Descripci\u00f3n"
+    },
+    "atoms": {
+      "type": "array",
+      "title": "\u00c1tomos",
+      "items": {
+        "type": "object",
+        "properties": {
+          "element": {
+            "type": "string",
+            "title": "S\u00edmbolo del elemento"
+          },
+          "position": {
+            "type": "array",
+            "items": {
+              "type": "number"
+            },
+            "minItems": 3,
+            "maxItems": 3,
+            "title": "Posici\u00f3n 3D"
+          }
+        },
+        "required": [
+          "element",
+          "position"
+        ]
+      }
+    },
+    "bonds": {
+      "type": "array",
+      "title": "Enlaces",
+      "items": {
+        "type": "object",
+        "properties": {
+          "from": {
+            "type": "integer",
+            "title": "\u00c1tomo origen"
+          },
+          "to": {
+            "type": "integer",
+            "title": "\u00c1tomo destino"
+          }
+        },
+        "required": [
+          "from",
+          "to"
+        ]
+      }
+    }
+  },
+  "required": [
+    "name",
+    "formula",
+    "type",
+    "atoms",
+    "bonds"
+  ],
+  "rls": {
+    "create": {
+      "user_condition": {
+        "role": "admin"
+      }
+    },
+    "read": null,
+    "update": {
+      "user_condition": {
+        "role": "admin"
+      }
+    },
+    "delete": {
+      "user_condition": {
+        "role": "admin"
+      }
+    }
+  }
+}

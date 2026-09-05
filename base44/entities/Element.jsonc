@@ -1,0 +1,55 @@
+{
+  "name": "Element",
+  "type": "object",
+  "properties": {
+    "symbol": {
+      "type": "string",
+      "title": "S\u00edmbolo"
+    },
+    "name": {
+      "type": "string",
+      "title": "Nombre"
+    },
+    "z": {
+      "type": "integer",
+      "title": "N\u00famero at\u00f3mico"
+    },
+    "mass": {
+      "type": "number",
+      "title": "Masa at\u00f3mica"
+    },
+    "type": {
+      "type": "string",
+      "title": "Tipo / Categor\u00eda"
+    },
+    "summary": {
+      "type": "string",
+      "title": "Resumen"
+    }
+  },
+  "required": [
+    "symbol",
+    "name",
+    "z",
+    "type",
+    "summary"
+  ],
+  "rls": {
+    "create": {
+      "user_condition": {
+        "role": "admin"
+      }
+    },
+    "read": null,
+    "update": {
+      "user_condition": {
+        "role": "admin"
+      }
+    },
+    "delete": {
+      "user_condition": {
+        "role": "admin"
+      }
+    }
+  }
+}
